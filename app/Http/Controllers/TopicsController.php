@@ -25,6 +25,7 @@ class TopicsController extends Controller
 
     public function show(Topic $topic)
     {
+        $topic->body = clean($topic->body, 'user_topic_body');
         return view('topics.show', compact('topic'));
     }
 
